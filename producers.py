@@ -36,8 +36,8 @@ def main():
     # For Main machine
     system_root = "/home/djzaamir/Desktop/BDA-Data/Cleaned-Data"
     files = [system_root + "/pokec_chunk_a.csv",
-             system_root + "/pokec_chunk_a.csv",
-             system_root + "/pokec_chunk_a.csv"]
+             system_root + "/pokec_chunk_b.csv",
+             system_root + "/pokec_chunk_c.csv"]
     
     _threads = []
     for file in files:
