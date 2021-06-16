@@ -44,7 +44,7 @@ def main():
                 
                 # Jaccord Similarity
                 j_sim = jaccard_similarity(sentence.split(), s_d.split())
-                if j_sim < 0.5:
+                if j_sim < 0.75:
                     continue
                 
 
