@@ -27,7 +27,7 @@ def producer(topic_name, file_a_uri):
         if i == num_records_to_send:
             break
         
-        time.sleep(0.5)
+        # time.sleep(0.5)
 
 def main():
 

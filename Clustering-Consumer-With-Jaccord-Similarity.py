@@ -39,6 +39,7 @@ def main():
 
             min_edit_distance = math.inf
             edit_distance_computed = False
+
             for s_d in streamed_data:
                 
                 # Jaccord Similarity
@@ -49,20 +50,20 @@ def main():
 
                 edit_distance_computed = True
                 # Edit Distance
-                dist =  Levenshtein.distance(sentence, u_id)
+                dist =  Levenshtein.distance(sentence, s_d)
                 if dist < min_edit_distance:
                     min_edit_distance = dist
 
-
-            if edit_distance_computed == False:
-                continue
-
-            group = "f"
-            print(f"Min-Edit-Distance for current sentence with other sentence = {min_edit_distance}")
-            for c in clusters:
-                if min_edit_distance >= clusters[c][0] and min_edit_distance < clusters[c][1]:
-                    group = c 
-                    break
+            group = "f"    
+            if edit_distance_computed:
+                
+                print(f"Min-Edit-Distance for current sentence with other sentence = {min_edit_distance}")
+                for c in clusters:
+                    if min_edit_distance >= clusters[c][0] and min_edit_distance < clusters[c][1]:
+                        group = c 
+                        break
+            else:
+                print(f"Edit Distance Not Computed, Since Jaccord-Was High")
             
             m_client.BDA.edit_distance_sim_with_jaccord.insert_one({"group" : group})
             streamed_data.append(sentence)
